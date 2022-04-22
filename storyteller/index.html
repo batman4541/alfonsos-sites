@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<title>Story Editor Code </title>
+<script>
+function loadStory(){
+var StoryName = document.getElementById("name_input").value
+var StoryHTML = localStorage.getItem(storyName)
+document.getElementById("story_editor").value = storyHTML
+}
+function saveStory(){
+var storyName = document.getElementById("name_input").value
+var storyHTML = document.getElementById("story_editor").value
+localStorage.setItem(storyName,storyHTML)
+}
+function displayStory(){
+var storyHTML = document.getElementById("story_editor").value
+document.getElementById("story_display").innerHTML = storyHTML
+}
+</script>
+<style>
+  h1 {text-align: center;}
+  div {text-align: center;}
+textarea{
+width: 400px;
+height: 500px;
+background-color: rgb(197, 215, 228);
+border-radius: 30px;
+text-align: center;
+}
+
+body{background-image: url("book.jpg");background-size: 100%;}
+</style>
+</head>
+<body>
+<h1>Story Editor</h1>
+<div>
+
+Story Name:<input id=name_input></input>
+<section>
+<button onclick="loadStory()">Find Story </button>
+<button onclick="saveStory()">Save Story </button>
+<button onclick="displayStory()">Display Text </button>
+</div>
+</script>
+<style>
+textarea{
+width:500px;
+height: 500px;
+background-color: rgb(200, 228, 246);
+border-radius: 30px;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  border-radius: 30px;
+}
+</style>
+
+</section>
+<div>
+<textarea id="story_editor" placeholder="Write a totally awesome story."></textarea>
+</div>
+<section id="story_display"></section>
+</body>
+</html>
